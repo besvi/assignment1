@@ -12,19 +12,18 @@ void setup() {
   rect(125, 700, 150, 50);
   rect(325, 700, 150, 50);
   rect(525, 700, 150, 50);
+  noFill();
+  stroke(0, 0, 0);
+  rect(700, 750, 90, 40);
   fill(0, 0, 0);
   textSize(((width+height)/2)/32);
   text("Start", 175, 732 );
   text("Options", 350, 732 );
   text("Quit", 575, 732);
+  text("Reset", 710, 775);
 }
 
 void draw() {
-  noFill();
-  stroke(0,0,0);
-  rect(700,750,90,40);
-  fill(0,0,0);
-  text("Reset",710,775);
   if (mousePressed == true) {
     if (mouseY > 700 && mouseY < 750) {
       if (mouseX > 125 && mouseX < 275) {
@@ -88,17 +87,14 @@ void draw() {
         fill(0, 0, 0);
         textSize(((width+height)/2)/32);
         text("Quit", 575, 732);
-      } else {
-        stroke(0, 0, 0);
-        fill(190, 240, 140);
-        rect(125, 700, 150, 50);
-        rect(325, 700, 150, 50);
-        rect(525, 700, 150, 50);
+      }
+    } else if (mouseX>700 && mouseX<790) {
+      if (mouseY>750 && mouseY<790) {
+        fill(205, 255, 155);
+        rect(700, 750, 90, 40);
         fill(0, 0, 0);
         textSize(((width+height)/2)/32);
-        text("Start", 175, 732 );
-        text("Options", 350, 732 );
-        text("Quit", 575, 732);
+        text("Reset", 710, 775);
       }
     } else {
       stroke(0, 0, 0);
@@ -106,33 +102,58 @@ void draw() {
       rect(125, 700, 150, 50);
       rect(325, 700, 150, 50);
       rect(525, 700, 150, 50);
+      rect(700, 750, 90, 40);
       fill(0, 0, 0);
       textSize(((width+height)/2)/32);
       text("Start", 175, 732 );
       text("Options", 350, 732 );
       text("Quit", 575, 732);
+      text("Reset", 710, 775);
     }
-  }
-  //700,750,90,40
-  if (mouseX>700 && mouseX<790) {
+    //something weird happened here
+    //check later bc need to use the sleep
+    //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    //  } else {
+    //  stroke(0, 0, 0);
+    //  fill(190, 240, 140);
+    //  rect(125, 700, 150, 50);
+    //  rect(325, 700, 150, 50);
+    //  rect(525, 700, 150, 50);
+    //  fill(0, 0, 0);
+    //  textSize(((width+height)/2)/32);
+    //  text("Start", 175, 732 );
+    //  text("Options", 350, 732 );
+    //  text("Quit", 575, 732);
+    //}
+    //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     if (mouseY>750 && mouseY<790) {
-      if (mousePressed) {
-        fill(190, 240, 140);
-        rect(0, 0, width, height);
-        textSize(width/16);
-        fill(random(200), random(200), random(200));
-        text("Welcome To The Game", 1.5*width/10, height/4);
-        strokeWeight(1);
-        fill(190, 240, 140);
-        rect(125, 700, 150, 50);
-        rect(325, 700, 150, 50);
-        rect(525, 700, 150, 50);
-        fill(0, 0, 0);
-        textSize(((width+height)/2)/32);
-        text("Start", 175, 732 );
-        text("Options", 350, 732 );
-        text("Quit", 575, 732);
+      fill(190, 240, 140);
+      rect(700, 750, 90, 40);
+      fill(0, 0, 0);
+      text("Reset", 710, 775);
+    }
+
+
+    if (mouseX>700 && mouseX<790) {
+      if (mouseY>750 && mouseY<790) {
+        if (mousePressed) {
+          fill(190, 240, 140);
+          rect(0, 0, width, height);
+          textSize(width/16);
+          fill(random(200), random(200), random(200));
+          text("Welcome To The Game", 1.5*width/10, height/4);
+          strokeWeight(1);
+          fill(190, 240, 140);
+          rect(125, 700, 150, 50);
+          rect(325, 700, 150, 50);
+          rect(525, 700, 150, 50);
+          fill(0, 0, 0);
+          textSize(((width+height)/2)/32);
+          text("Start", 175, 732 );
+          text("Options", 350, 732 );
+          text("Quit", 575, 732);
+        }
       }
     }
   }
-}
+  }
