@@ -14,9 +14,9 @@ void setup() {
   text("Welcome To The Game", width/2, height/5);
   strokeWeight(1);
   fill(190, 240, 140);
-  rect(width/6, 700, 150, 50);
-  rect(width/4, 700, 150, 50);
-  rect(3*width/4, 700, 150, 50);
+  rect((width/4)-75, 700, 150, 50);
+  rect((width/2)-75, 700, 150, 50);
+  rect((3*width/4)-75, 700, 150, 50);
   rect(700, 750, 90, 40);
   stroke(0, 0, 0);
   fill(0, 0, 0);
@@ -60,15 +60,15 @@ void draw() {
   } else { //BUTTON DEFAULTS
     stroke(0, 0, 0);
     fill(190, 240, 140);
-    rect(width/4, 700, 150, 50);
-    rect(325, 700, 150, 50);
-    rect(525, 700, 150, 50);
+    rect((width/4)-75, 700, 150, 50);
+    rect((width/2)-75, 700, 150, 50);
+    rect((3*width/4)-75, 700, 150, 50);
     rect(700, 750, 90, 40);
     fill(0, 0, 0);
     textSize(((width+height)/2)/32);
     text("Start", width/4, 732 );
-    text("Options", 350, 732 );
-    text("Quit", 575, 732);
+    text("Options", width/2, 732 );
+    text("Quit", 3*width/4, 732);
     text("Reset", 710, 775);
   }
 }
