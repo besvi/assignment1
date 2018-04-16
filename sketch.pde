@@ -1,10 +1,3 @@
-/*
-start x ((200)-75) - ((200)+75)
- options
- quit
- reset
- */
-
 void setup() {
   size(800, 800);
   background(190, 240, 140);
@@ -26,18 +19,6 @@ void setup() {
   text("Quit", 600, 732);
   text("Reset", 750, 775);
 }
-
-//dunno what this would be for yet so
-/*boolean overRect(int x, int y, int 800, int 800) {
- if (mouseX >= x && mouseX <= x+800 && 
- mouseY >= y && mouseY <= y+800) {
- return true;
- } else {
- return false;
- }
- }
- //saving for later experiments k
- */
 
 void draw() {
   //HOVER BUTTONS
@@ -91,8 +72,6 @@ void draw() {
   }
 }
 
-//void update(){
-//}
 void mouseClicked() {
   if (mouseButton == LEFT) {
     if (mouseY>750 && mouseY<790 && mouseX>700 && mouseX<790) { //RESET
