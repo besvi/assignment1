@@ -46,56 +46,6 @@ void draw() {
     stroke(190, 240, 140);
     fill(190, 240, 140);
     rect(0, 161, 800, 800);
-    stroke(0, 0, 0);char s = 0;
-char e = 0;
-void setup() {
-  size(800, 800);
-  background(190, 240, 140);
-  textSize(50);
-  fill(random(190), random(190), random(190));
-  textAlign(CENTER);
-  text("Welcome To The Game", 400, 160);
-  strokeWeight(1);
-  stroke(0, 0, 0);
-  fill(190, 240, 140);
-  rect(125, 700, 150, 50);
-  rect(325, 700, 150, 50);
-  rect(525, 700, 150, 50);
-  rect(700, 750, 90, 40);
-  fill(0, 0, 0);
-  textSize(25);
-  text("Start", 200, 732 );
-  text("Options", 400, 732 );
-  text("Quit", 600, 732);
-  text("Reset", 750, 775);
-}
-
-void draw() {
-  //HOVER BUTTONS
-  if (mouseY > 700 && mouseY < 750 &&  mouseX > 125 && mouseX < 275) { //HOVER START
-    fill(205, 255, 155);
-    rect(125, 700, 150, 50);
-    fill(0, 0, 0);
-    text("Start", 200, 732 );
-  } else if (mouseY > 700 && mouseY < 750 && mouseX > 325 && mouseX < 475) { //HOVER OPTIONS
-    fill(205, 255, 155);
-    rect(325, 700, 150, 50);
-    fill(0, 0, 0);
-    text("Options", 400, 732 );
-  } else if (mouseY > 700 && mouseY < 750 && mouseX > 525 && mouseX < 675) { //HOVER QUIT
-    fill(205, 255, 155);
-    rect(525, 700, 150, 50);
-    fill(0, 0, 0);
-    text("Quit", 600, 732);
-  } else if (mouseX>700 && mouseX<790 && mouseY>750 && mouseY<790) { //HOVER RESET
-    fill(205, 255, 155);
-    rect(700, 750, 90, 40);
-    fill(0, 0, 0);
-    text("Reset", 750, 775);
-  } else if (mouseY == 700 && mouseX > 125 && mouseX < 275 || mouseY == 750 && mouseX > 125 && mouseX < 275) {
-    stroke(190, 240, 140);
-    fill(190, 240, 140);
-    rect(0, 161, 800, 800);
     stroke(0, 0, 0);
     fill(190, 240, 140);
     rect(125, 700, 150, 50);
