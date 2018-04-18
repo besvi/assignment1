@@ -1,4 +1,5 @@
-int num = 0;
+int pos = 0;
+int w = 0;
 void setup() {
   size(800, 800);
   background(190, 240, 140);
@@ -22,59 +23,68 @@ void setup() {
 }
 
 void draw() {
-  if (mouseY > 700 && mouseY < 750 &&  mouseX > 125 && mouseX < 275) { //HOVER START
-    num = 1;
+  if (mouseY > 700 && mouseY < 750 &&  mouseX > 125 && mouseX < 275) { 
+    //HOVER START
+    pos = 1;
   } 
-  if (mouseY > 700 && mouseY < 750 && mouseX > 325 && mouseX < 475) { //HOVER OPTIONS
-    num = 2;
+  if (mouseY > 700 && mouseY < 750 && mouseX > 325 && mouseX < 475) { 
+    //HOVER OPTIONS
+    pos = 2;
   } 
-  if (mouseY > 700 && mouseY < 750 && mouseX > 525 && mouseX < 675) { //HOVER QUIT
-    num = 3;
+  if (mouseY > 700 && mouseY < 750 && mouseX > 525 && mouseX < 675) { 
+    //HOVER QUIT
+    pos = 3;
   } 
-  if (mouseX>700 && mouseX<790 && mouseY>750 && mouseY<790) { //HOVER RESET
-    num = 5;
+  if (mouseX>700 && mouseX<790 && mouseY>750 && mouseY<790) { 
+    //HOVER RESET
+    pos = 5;
   } 
-  
-  switch(num) {
-    case '1': //START
-    println(num);
-      fill(205, 255, 155);
-      rect(125, 700, 150, 50);
-      fill(0, 0, 0);
-      text("Start", 200, 732 );
-      break;
-    case '2': //OPTIONS
-      fill(205, 255, 155);
-      rect(325, 700, 150, 50);
-      fill(0, 0, 0);
-      text("Options", 400, 732 );
-      break;
-    case '3': // Quit
-      fill(205, 255, 155);
-      rect(525, 700, 150, 50);
-      fill(0, 0, 0);
-      text("Quit", 600, 732);
-      break;
-    case'5': //RESET
-      fill(205, 255, 155);
-      rect(700, 750, 90, 40);
-      fill(0, 0, 0);
-      text("Reset", 750, 775);
-      break;
-    default: //DEFAULT
-      num = 0;
-      stroke(0, 0, 0);
-      fill(190, 240, 140);
-      rect(125, 700, 150, 50);
-      rect(325, 700, 150, 50);
-      rect(525, 700, 150, 50);
-      rect(700, 750, 90, 40);
-      fill(0, 0, 0);
-      text("Start", 200, 732 );
-      text("Options", 400, 732 );
-      text("Quit", 600, 732);
-      text("Reset", 750, 775);
-      break;
+  println(pos);
+  switch(pos) {
+  case '1': 
+    //START
+    println(pos);
+    fill(205, 255, 155);
+    rect(125, 700, 150, 50);
+    fill(0, 0, 0);
+    text("Start", 200, 732 );
+    break;
+  case '2': 
+    //OPTIONS
+    fill(205, 255, 155);
+    rect(325, 700, 150, 50);
+    fill(0, 0, 0);
+    text("Options", 400, 732 );
+    break;
+  case '3': 
+    // Quit
+    fill(205, 255, 155);
+    rect(525, 700, 150, 50);
+    fill(0, 0, 0);
+    text("Quit", 600, 732);
+    break;
+  case'5': 
+    //RESET
+    fill(205, 255, 155);
+    rect(700, 750, 90, 40);
+    fill(0, 0, 0);
+    text("Reset", 750, 775);
+    break;
+  default: 
+    //DEFAULT
+    pos = 0;
+    stroke(0, 0, 0);
+    fill(190, 240, 140);
+    rect(125, 700, 150, 50);
+    rect(325, 700, 150, 50);
+    rect(525, 700, 150, 50);
+    rect(700, 750, 90, 40);
+    fill(0, 0, 0);
+    text("Start", 200, 732 );
+    text("Options", 400, 732 );
+    text("Quit", 600, 732);
+    text("Reset", 750, 775);
+    break;
   }
 }
 
@@ -102,6 +112,7 @@ void mouseClicked() {
       exit();
     } else { //NOT BUTTON
       setup();
+      w = w + 1;
       noStroke();
       fill(170, 220, 120);
       rect(210, 330, 400, 320); //shadow
@@ -118,12 +129,17 @@ void mouseClicked() {
       fill(50, 50, 50);
       text("Okay", 290, 623);
       text("Okay", 470, 623);
-    }
-    if (mouseY>600 && mouseY<630) { //OKAY
-      if (mouseX>270 && mouseX<370 || mouseX>450 && mouseX<550) {
-        fill(190, 240, 140);
-        stroke(190, 240, 140);
-        rect(200, 320, (400)+10, (320)+10);
+      if (w == 1) {
+        if (mouseY>600 && mouseY<630) { //OKAY
+          if (mouseX>270 && mouseX<370 || mouseX>450 && mouseX<550) {
+            if (mouseButton == LEFT) {
+              fill(190, 240, 140);
+              stroke(190, 240, 140);
+              rect(200, 320, (400)+10, (320)+10);
+              w = 0;
+            }
+          }
+        }
       }
     }
   }
