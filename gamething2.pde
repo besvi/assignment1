@@ -41,7 +41,7 @@ void draw() {
   } 
   println(pos);
   switch(pos) {
-  case '1': 
+  case 1: 
     //START
     println(pos);
     fill(205, 255, 155);
@@ -49,21 +49,21 @@ void draw() {
     fill(0, 0, 0);
     text("Start", 200, 732 );
     break;
-  case '2': 
+  case 2: 
     //OPTIONS
     fill(205, 255, 155);
     rect(325, 700, 150, 50);
     fill(0, 0, 0);
     text("Options", 400, 732 );
     break;
-  case '3': 
+  case 3: 
     // Quit
     fill(205, 255, 155);
     rect(525, 700, 150, 50);
     fill(0, 0, 0);
     text("Quit", 600, 732);
     break;
-  case'5': 
+  case 5: 
     //RESET
     fill(205, 255, 155);
     rect(700, 750, 90, 40);
