@@ -1,6 +1,8 @@
-int pos = 0;
+int drawPos = 0;
 int w = 0;
 int p = 0;
+int h = 0;
+int k = 0;
 void setup() {
   size(800, 800);
   background(190, 240, 140);
@@ -24,23 +26,26 @@ void setup() {
 }
 
 void draw() {
+  if (mousePressed) {
+    thread("modeSelect");
+  }
   if (mouseY > 700 && mouseY < 750 &&  mouseX > 125 && mouseX < 275) { 
     //HOVER START
-    pos = 1;
+    drawPos = 1;
   } 
   if (mouseY > 700 && mouseY < 750 && mouseX > 325 && mouseX < 475) { 
     //HOVER OPTIONS
-    pos = 2;
+    drawPos = 2;
   } 
   if (mouseY > 700 && mouseY < 750 && mouseX > 525 && mouseX < 675) { 
     //HOVER QUIT
-    pos = 3;
+    drawPos = 3;
   } 
   if (mouseX>700 && mouseX<790 && mouseY>750 && mouseY<790) { 
     //HOVER RESET
-    pos = 5;
+    drawPos = 5;
   } 
-  switch(pos) {
+  switch(drawPos) {
   case 1: 
     //START
     fill(205, 255, 155);
@@ -84,7 +89,7 @@ void draw() {
     text("Reset", 750, 775);
     break;
   }
-  pos = 0;
+  drawPos = 0;
   w = 0;
   if (mouseY>750 && mouseY<790 && mouseX>700 && mouseX<790) { //RESET
     w = 5;
@@ -100,17 +105,25 @@ void draw() {
 
   switch(p) {
   case 1:
-  if(mousePressed){
-    setup();
-  }
+    if (mousePressed) {
+      setup();
+    }
     break;
   case 2:
-  if(mousePressed){
-    setup();
-  }
+    if (mousePressed) {
+      setup();
+    }
     break;
   }
+  if (mouseY>600 && mouseY<630) { //OKAY
+    if (mouseX>270 && mouseX<370 || mouseX>450 && mouseX<550) {
+      if (mousePressed && k == 7) {
+        h = 1;
+      }
+    }
+  }
 }
+
 
 void mouseClicked() {
   switch(w) {
@@ -124,6 +137,9 @@ void mouseClicked() {
     fill(0, 0, 0);
     text("Math", 200, 550);
     text("Not math", 200, 650);
+    
+      thread("modeSelect");
+    
     break;
   case 2:
     setup();
@@ -137,6 +153,11 @@ void mouseClicked() {
     break;
   case 5:
     setup();
+    drawPos = 0;
+    w = 0;
+    p = 0;
+    h = 0;
+    k = 0;
     break;
   case 6:
     setup();
@@ -156,14 +177,16 @@ void mouseClicked() {
     fill(50, 50, 50);
     text("Okay", 290, 623);
     text("Okay", 470, 623);
-    w = 7;
-    break;
-  case 7:
-    if (mouseY>600 && mouseY<630) { //OKAY
-      if (mouseX>270 && mouseX<370 || mouseX>450 && mouseX<550) {
-        p = 1;
-      }
-    }
+    k = 7;
     break;
   }
+  if (h==1) {
+    setup();
+    h = 0;
+    k = 0;
+  }
+}
+void modeSelect() {
+  if(mouseY > 700 && mouseY < 750 && mouseX > 125 && mouseX < 275){
+}
 }
