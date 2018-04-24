@@ -3,6 +3,10 @@ int w = 0;
 int p = 0;
 int h = 0;
 int k = 0;
+boolean mainMenu = true;
+boolean mathGame = false;
+boolean nonMath = false;
+boolean start = false;
 void setup() {
   size(800, 800);
   background(190, 240, 140);
@@ -26,25 +30,30 @@ void setup() {
 }
 
 void draw() {
-  if (mousePressed) {
+  if (start == true) {
     thread("modeSelect");
   }
-  if (mouseY > 700 && mouseY < 750 &&  mouseX > 125 && mouseX < 275) { 
-    //HOVER START
-    drawPos = 1;
-  } 
-  if (mouseY > 700 && mouseY < 750 && mouseX > 325 && mouseX < 475) { 
-    //HOVER OPTIONS
-    drawPos = 2;
-  } 
-  if (mouseY > 700 && mouseY < 750 && mouseX > 525 && mouseX < 675) { 
-    //HOVER QUIT
-    drawPos = 3;
-  } 
-  if (mouseX>700 && mouseX<790 && mouseY>750 && mouseY<790) { 
-    //HOVER RESET
-    drawPos = 5;
-  } 
+  if (mainMenu == true) {
+    thread("main");
+  }
+  {
+    if (mouseY > 700 && mouseY < 750 &&  mouseX > 125 && mouseX < 275) { 
+      //HOVER START
+      drawPos = 1;
+    } 
+    if (mouseY > 700 && mouseY < 750 && mouseX > 325 && mouseX < 475) { 
+      //HOVER OPTIONS
+      drawPos = 2;
+    } 
+    if (mouseY > 700 && mouseY < 750 && mouseX > 525 && mouseX < 675) { 
+      //HOVER QUIT
+      drawPos = 3;
+    } 
+    if (mouseX>700 && mouseX<790 && mouseY>750 && mouseY<790) { 
+      //HOVER RESET
+      drawPos = 5;
+    }
+  }
   switch(drawPos) {
   case 1: 
     //START
@@ -93,9 +102,9 @@ void draw() {
   w = 0;
   if (mouseY>750 && mouseY<790 && mouseX>700 && mouseX<790) { //RESET
     w = 5;
-  } else if (mouseY > 700 && mouseY < 750 && mouseX > 125 && mouseX < 275) { //START
+  } else if (mouseY > 700 && mouseY < 750 && mouseX > 125 && mouseX < 275 && k != 7) { //START
     w = 1;
-  } else if (mouseY > 700 && mouseY < 750 && mouseX > 325 && mouseX < 475) { //OPTIONS
+  } else if (mouseY > 700 && mouseY < 750 && mouseX > 325 && mouseX < 475 && k != 7) { //OPTIONS
     w = 2;
   } else if (mouseY > 700 && mouseY < 750 && mouseX > 525 && mouseX < 675) { //QUIT
     w = 3;
@@ -115,15 +124,17 @@ void draw() {
     }
     break;
   }
+
+
   if (mouseY>600 && mouseY<630) { //OKAY
     if (mouseX>270 && mouseX<370 || mouseX>450 && mouseX<550) {
-      if (mousePressed && k == 7) {
+      if (mousePressed && k == 7 && mainMenu == false) {
+        mainMenu = true;
         h = 1;
       }
     }
   }
 }
-
 
 void mouseClicked() {
   switch(w) {
@@ -137,9 +148,8 @@ void mouseClicked() {
     fill(0, 0, 0);
     text("Math", 200, 550);
     text("Not math", 200, 650);
-    
-      thread("modeSelect");
-    
+    thread("modeSelect");
+
     break;
   case 2:
     setup();
@@ -175,18 +185,22 @@ void mouseClicked() {
     rect(270, 600, 100, 30);
     rect(450, 600, 100, 30);
     fill(50, 50, 50);
-    text("Okay", 290, 623);
-    text("Okay", 470, 623);
+    text("Okay", 315, 623);
+    text("Okay", 500, 623);
     k = 7;
+    mainMenu = false;
     break;
   }
   if (h==1) {
     setup();
     h = 0;
     k = 0;
+    mainMenu = true;
   }
 }
 void modeSelect() {
-  if(mouseY > 700 && mouseY < 750 && mouseX > 125 && mouseX < 275){
-}
+  if (mouseY > 700 && mouseY < 750 && mouseX > 125 && mouseX < 275) {
+    fill(0);
+    rect(500, 500, 500, 500);
+  }
 }
