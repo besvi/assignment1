@@ -33,10 +33,8 @@ void draw() {
   if (start == true) {
     thread("modeSelect");
   }
-  if (mainMenu == true) {
-    thread("main");
-  }
-  {
+
+  if(mainMenu == true){
     if (mouseY > 700 && mouseY < 750 &&  mouseX > 125 && mouseX < 275) { 
       //HOVER START
       drawPos = 1;
