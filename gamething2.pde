@@ -7,11 +7,12 @@ boolean mainMenu = true;
 boolean mathGame = false;
 boolean nonMath = false;
 boolean start = false;
+int u = 0;
 void setup() {
   size(800, 800);
   background(190, 240, 140);
   textSize(50);
-  fill(random(190), random(190), random(190));
+  fill(10, 50, 100);
   textAlign(CENTER);
   text("Welcome To The Game", 400, 160);
   strokeWeight(1);
@@ -28,13 +29,22 @@ void setup() {
   text("Quit", 600, 732);
   text("Reset", 750, 775);
 }
-
 void draw() {
   if (start == true) {
     thread("modeSelect");
   }
-
-  if(mainMenu == true){
+  if (mathGame == true) {
+    thread("mathGame");
+  }
+  if (nonMath == true) {
+    thread("nonMath");
+  }
+  if (mainMenu == true) {
+    thread("mainMenu");
+  }
+}
+void mainMenu() {
+  if (mainMenu == true) {
     if (mouseY > 700 && mouseY < 750 &&  mouseX > 125 && mouseX < 275) { 
       //HOVER START
       drawPos = 1;
@@ -52,6 +62,7 @@ void draw() {
       drawPos = 5;
     }
   }
+
   switch(drawPos) {
   case 1: 
     //START
@@ -107,9 +118,10 @@ void draw() {
   } else if (mouseY > 700 && mouseY < 750 && mouseX > 525 && mouseX < 675) { //QUIT
     w = 3;
   } else {
-    w = 6;
+    if (start != true) {
+      w = 6;
+    }
   }
-
   switch(p) {
   case 1:
     if (mousePressed) {
@@ -122,7 +134,6 @@ void draw() {
     }
     break;
   }
-
 
   if (mouseY>600 && mouseY<630) { //OKAY
     if (mouseX>270 && mouseX<370 || mouseX>450 && mouseX<550) {
@@ -146,8 +157,7 @@ void mouseClicked() {
     fill(0, 0, 0);
     text("Math", 200, 550);
     text("Not math", 200, 650);
-    thread("modeSelect");
-
+    start = true;
     break;
   case 2:
     setup();
@@ -166,6 +176,7 @@ void mouseClicked() {
     p = 0;
     h = 0;
     k = 0;
+    u = 0;
     break;
   case 6:
     setup();
@@ -197,8 +208,23 @@ void mouseClicked() {
   }
 }
 void modeSelect() {
-  if (mouseY > 700 && mouseY < 750 && mouseX > 125 && mouseX < 275) {
-    fill(0);
-    rect(500, 500, 500, 500);
+  if (start == true && mouseY > 500 && mouseY < 600 && mouseX > 125 && mouseX < 275 && mousePressed) {
+    u = 1;
+    if (u == 1) {
+      mathGame = true;
+    }
+  } else if (start == true && mouseY > 600 && mouseY < 700 && mouseX > 125 && mouseX < 275 && mousePressed) {
+    u = 1;
+    if (u == 1) {
+      nonMath = true;
+    }
   }
+}
+void nonmath() {
+  fill(245, 245, 245);
+  rect(0, 0, 800, 800);
+}
+void mathGame() {
+  fill(245, 245, 245);
+  rect(0, 0, 800, 800);
 }
