@@ -1,13 +1,12 @@
-int drawPos = 0;
 int w = 0;
-int p = 0;
 int h = 0;
 int k = 0;
+int u = 0;
+int drawPos = 0;
 boolean mainMenu = true;
 boolean mathGame = false;
 boolean nonMath = false;
 boolean start = false;
-int u = 0;
 void setup() {
   size(800, 800);
   background(190, 240, 140);
@@ -122,22 +121,10 @@ void mainMenu() {
       w = 6;
     }
   }
-  switch(p) {
-  case 1:
-    if (mousePressed) {
-      setup();
-    }
-    break;
-  case 2:
-    if (mousePressed) {
-      setup();
-    }
-    break;
-  }
-
   if (mouseY>600 && mouseY<630) { //OKAY
     if (mouseX>270 && mouseX<370 || mouseX>450 && mouseX<550) {
       if (mousePressed && k == 7 && mainMenu == false) {
+        setup();
         mainMenu = true;
         h = 1;
       }
@@ -173,7 +160,6 @@ void mouseClicked() {
     setup();
     drawPos = 0;
     w = 0;
-    p = 0;
     h = 0;
     k = 0;
     u = 0;
