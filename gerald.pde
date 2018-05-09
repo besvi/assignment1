@@ -11,18 +11,18 @@ void setup() {
   textSize(width/5);
   text("=^ v ^=", width/2, height/2);
   sentence = "I shall name him Gerald ^v^";
-  cap = "[A-Z]";
+  cap = " [A-Z]";
   String[] Caps = sentence.split(cap);
   String[] list = split(sentence, " ");
   int words = list.length;
-  println("Your sentence is: " + sentence + ".");
-  println("Your sentence has " + (Caps.length - 1) + " capital(s).");
+  println("Your sentence is, \"" + sentence + "\".");
+  println("Your sentence has " + Caps.length + " capital(s).");
   println("Your sentence is " + words + " word(s) long.");
-  println("You have taken " + numberOfLetterL(sentence) + " L('s).");
-  println("You thought you were writing a formal report (ie: used punctuation) " + numberOfPunctuation(sentence) + " time(s).");
+  println("You used punctuation " + numberOfPunctuation(sentence) + " time(s).");
   println("Your sentence is " + sentence.length() + " character(s) long.");
-  println("Your sentence contains " + numberOfVowels(sentence)  + " many vowel(s).");
+  println("Your sentence contains " + numberOfVowels(sentence)  + " vowel(s).");
   println("  >  Helpful reminder: Gerald is proud of you!!");
+  println(letterCount(sentence));
 }
 
 void draw() {
@@ -40,23 +40,27 @@ int numberOfVowels(String sentence) {
   return amountOfVowels;
 }
 
-int numberOfPunctuation(String list) {
+int numberOfPunctuation(String sentence) {
   int amountOfPunctuation = 0;
-  char [] punctuation = list.toCharArray();
+  char [] punctuation = sentence.toCharArray();
   for (int p = 0; p < punctuation.length; p++) {
-    if (punctuation[p] == '.' || punctuation[p] == '`' || punctuation[p] == ':' || punctuation[p] == ';' || punctuation[p] == ',' || punctuation[p] == '!' || punctuation[p] == '?') {
+    if (punctuation[p] == '.' || punctuation[p] == '\'' || punctuation[p] == ':' || punctuation[p] == ';' || punctuation[p] == ',' || punctuation[p] == '!' || punctuation[p] == '?') {
       amountOfPunctuation += 1;
     }
   }
   return amountOfPunctuation;
 }
-int numberOfLetterL(String list) {
-  int amountOfLs = 0;
-  char [] letters = list.toCharArray();
-  for (int i = 0; i < letters.length; i++) {
-    if (letters[i] == 'l' || letters[i] == 'L') {
-      amountOfLs += 1;
+
+int letterCount(String sentence) {
+  String[] lC = new String[sentence.length()];
+  for (int count = 0; count < lC.length; count++) {
+    if (lC[count] == lC[1]) {
     }
   }
-  return amountOfLs;
+  int mostLetter = 0;
+  int c1L = lC.length;
+  int c2L = lC.length;
+  if (c1L<c2L) {
+  }
+  return mostLetter;
 }
