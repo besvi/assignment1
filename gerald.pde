@@ -22,7 +22,7 @@ void setup() {
   println("Your sentence is " + sentence.length() + " character(s) long.");
   println("Your sentence contains " + numberOfVowels(sentence)  + " vowel(s).");
   println("  >  Helpful reminder: Gerald is proud of you!!");
-  println(letterCount(sentence));
+  println();
 }
 
 void draw() {
@@ -50,17 +50,14 @@ int numberOfPunctuation(String sentence) {
   }
   return amountOfPunctuation;
 }
-
-int letterCount(String sentence) {
-  String[] lC = new String[sentence.length()];
-  for (int count = 0; count < lC.length; count++) {
-    if (lC[count] == lC[1]) {
+int count(String sentence) {
+  char[] letterCount = sentence.toCharArray();
+  for (int c = 0; c < letterCount.length; c++) {
+    if (letterCount[c] == "{a-z A-Z}") {
+      String[] letters = sentence.split("{a-z A-Z}");
+      int[] lettersLengths = new int[letters.length];
+      int highestNum = max(lettersLengths);
+      return highestNum;
     }
   }
-  int mostLetter = 0;
-  int c1L = lC.length;
-  int c2L = lC.length;
-  if (c1L<c2L) {
-  }
-  return mostLetter;
 }
