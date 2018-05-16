@@ -1,6 +1,7 @@
 String sentence;
 String cap;
 int s = 130;
+String all;
 void settings() {
   size(s, s);
 }
@@ -16,13 +17,14 @@ void setup() {
   String[] list = split(sentence, " ");
   int words = list.length;
   println("Your sentence is, \"" + sentence + "\".");
-  println("Your sentence has " + Caps.length + " capital(s).");
-  println("Your sentence is " + words + " word(s) long.");
-  println("You used punctuation " + numberOfPunctuation(sentence) + " time(s).");
-  println("Your sentence is " + sentence.length() + " character(s) long.");
-  println("Your sentence contains " + numberOfVowels(sentence)  + " vowel(s).");
+  println("Your sentence consists of:");
+  println(" - " + Caps.length + " capital(s)");
+  println(" - " + words + " word(s)");
+  println(" - " + numberOfPunctuation(sentence) + " punctuation mark(s)");
+  println(" - " + sentence.length() + " character(s)");
+  println(" - " + numberOfVowels(sentence)  + " vowel(s)");
   println("  >  Helpful reminder: Gerald is proud of you!!");
-  println();
+  println("The most used letter in your sentence is [" + all + "].");
 }
 
 void draw() {
@@ -50,14 +52,28 @@ int numberOfPunctuation(String sentence) {
   }
   return amountOfPunctuation;
 }
-int count(String sentence) {
-  char[] letterCount = sentence.toCharArray();
-  for (int c = 0; c < letterCount.length; c++) {
-    if (letterCount[c] == "{a-z A-Z}") {
-      String[] letters = sentence.split("{a-z A-Z}");
-      int[] lettersLengths = new int[letters.length];
-      int highestNum = max(lettersLengths);
-      return highestNum;
+/*int count(String sentence) {
+ char[] letterCount = sentence.toCharArray();
+ for (int c = 0; c < letterCount.length; c++) {
+ if (letterCount[c] == "{a-z A-Z}") {
+ String[] letters = sentence.split("{a-z A-Z}");
+ int[] lettersLengths = new int[letters.length];
+ int highestNum = max(lettersLengths);
+ return highestNum;
+ }
+ }
+ }*/
+
+int letter(String sentence) {
+  int[] Count = new int[51];
+  all = cap + "[a-z]";
+  sentence.split(all);
+  int letterCount = 0;
+  char [] count = sentence.toCharArray();
+  for (int p = 0; p < count.length; p++) {
+    if (p >= 'a' || p <= 'Z') {
+     Count[1] = sentence.indexOf("");
     }
   }
+  return letterCount;
 }
