@@ -2,6 +2,7 @@ String sentence;
 String cap;
 int s = 130;
 String all;
+String vowels;
 void settings() {
   size(s, s);
 }
@@ -13,6 +14,7 @@ void setup() {
   text("=^ v ^=", width/2, height/2);
   sentence = "I shall name him Gerald ^v^";
   cap = " [A-Z]";
+  vowels = [a e i o u];
   String[] Caps = sentence.split(cap);
   String[] list = split(sentence, " ");
   int words = list.length;
@@ -24,7 +26,7 @@ void setup() {
   println(" - " + sentence.length() + " character(s)");
   println(" - " + numberOfVowels(sentence)  + " vowel(s)");
   println("  >  Helpful reminder: Gerald is proud of you!!");
-  println("The most used letter in your sentence is [" + all + "].");
+  println("The most used letter in your sentence is [" + all + "], appearing [" + all + "] times.");
 }
 
 void draw() {
@@ -52,27 +54,12 @@ int numberOfPunctuation(String sentence) {
   }
   return amountOfPunctuation;
 }
-/*int count(String sentence) {
- char[] letterCount = sentence.toCharArray();
- for (int c = 0; c < letterCount.length; c++) {
- if (letterCount[c] == "{a-z A-Z}") {
- String[] letters = sentence.split("{a-z A-Z}");
- int[] lettersLengths = new int[letters.length];
- int highestNum = max(lettersLengths);
- return highestNum;
- }
- }
- }*/
 
 int letter(String sentence) {
-  int[] Count = new int[51];
-  all = cap + "[a-z]";
-  sentence.split(all);
   int letterCount = 0;
-  char [] count = sentence.toCharArray();
-  for (int p = 0; p < count.length; p++) {
+  char [] countLetter = sentence.toCharArray();
+  for (int p = 0; p < countLetter.length; p++) {
     if (p >= 'a' || p <= 'Z') {
-     Count[1] = sentence.indexOf("");
     }
   }
   return letterCount;
